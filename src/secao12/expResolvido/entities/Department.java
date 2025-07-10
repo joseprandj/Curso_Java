@@ -1,4 +1,4 @@
-package secao12.exc1_Resolvido.entities;
+package secao12.expResolvido.entities;
 
 public class Department {
     private String Name;

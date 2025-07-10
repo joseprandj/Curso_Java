@@ -1,9 +1,9 @@
-package secao12.exc1_Resolvido;
+package secao12.expResolvido;
 
-import secao12.exc1_Resolvido.entities.Department;
-import secao12.exc1_Resolvido.entities.HourContract;
-import secao12.exc1_Resolvido.entities.Worker;
-import secao12.exc1_Resolvido.entities.enums.WorkerLevel;
+import secao12.expResolvido.entities.Department;
+import secao12.expResolvido.entities.HourContract;
+import secao12.expResolvido.entities.Worker;
+import secao12.expResolvido.entities.enums.WorkerLevel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

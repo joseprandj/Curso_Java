@@ -1,6 +1,6 @@
-package secao12.exc1_Resolvido.entities;
+package secao12.expResolvido.entities;
 
-import secao12.exc1_Resolvido.entities.enums.WorkerLevel;
+import secao12.expResolvido.entities.enums.WorkerLevel;
 
 import java.util.ArrayList;
 import java.util.Calendar;

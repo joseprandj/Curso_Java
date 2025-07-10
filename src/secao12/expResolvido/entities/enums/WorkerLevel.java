@@ -1,4 +1,4 @@
-package secao12.exc1_Resolvido.entities.enums;
+package secao12.expResolvido.entities.enums;
 
 public enum WorkerLevel {
     JUNIOR,

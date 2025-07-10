@@ -1,4 +1,4 @@
-package secao12.exc1_Resolvido.entities;
+package secao12.expResolvido.entities;
 
 import java.util.Date;
 
@@ -37,7 +37,7 @@ public class HourContract {
         this.hours = hours;
     }
 
-    public Double totalValue(){
+    public Double totalValue() {
         return valuePerHour * hours;
     }
 }
