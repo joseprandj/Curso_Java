@@ -1,6 +1,7 @@
-package secao15.model.entities;
+package entities;
 
 public class Product {
+
     private String name;
     private Double price;
     private Integer quantity;
@@ -35,7 +36,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Double totalPrice(){
-        return quantity * price;
+    public double total() {
+        return price * quantity;
     }
 }
