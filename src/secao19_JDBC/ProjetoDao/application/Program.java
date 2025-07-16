@@ -1,5 +1,7 @@
 package secao19_JDBC.ProjetoDao.application;
 
+import secao19_JDBC.ProjetoDao.module.dao.DaoFactory;
+import secao19_JDBC.ProjetoDao.module.dao.SellerDao;
 import secao19_JDBC.ProjetoDao.module.entities.Department;
 import secao19_JDBC.ProjetoDao.module.entities.Seller;
 
@@ -11,6 +13,9 @@ public class Program {
         System.out.println(department);
 
         Seller seller = new Seller(1, "Teste", "teste@gmail.com", new Date(),1500.00, department);
-        System.out.println(seller);
+
+        SellerDao sellerDao = DaoFactory.createSellerDao();
+
+        System.out.println(sellerDao);
     }
 }
