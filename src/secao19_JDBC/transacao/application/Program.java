@@ -40,8 +40,8 @@ public class Program {
 
             conn.commit();
 
-            System.out.print("rows1" + rows1);
-            System.out.print("rows2" + rows2);
+            System.out.print("rows1: " + rows1);
+            System.out.print("rows2: " + rows2);
 
         } catch (SQLException e) {
             try{

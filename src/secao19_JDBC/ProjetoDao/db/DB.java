@@ -1,4 +1,4 @@
-package secao19_JDBC.deletandoDados.db;
+package secao19_JDBC.ProjetoDao.db;
 
 import java.io.FileInputStream;
 import java.io.IOException;
