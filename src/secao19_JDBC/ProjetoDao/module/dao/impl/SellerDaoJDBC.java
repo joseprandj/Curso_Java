@@ -89,7 +89,7 @@ public class SellerDaoJDBC implements SellerDao {
 
             int rows = st.executeUpdate();
             if (rows == 0) {
-                throw new DbException("Id informed not exist.");
+                throw new DbException("informed does not exist.");
             }
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
