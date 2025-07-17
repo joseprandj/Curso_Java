@@ -3,13 +3,10 @@ package secao19_JDBC.ProjetoDao.module.dao.impl;
 import secao19_JDBC.ProjetoDao.module.dao.SellerDao;
 import secao19_JDBC.ProjetoDao.module.entities.Department;
 import secao19_JDBC.ProjetoDao.module.entities.Seller;
-import secao19_JDBC.transacao.db.DB;
-import secao19_JDBC.transacao.db.DbException;
+import secao19_JDBC.ProjetoDao.db.DB;
+import secao19_JDBC.ProjetoDao.db.DbException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.*;
 
 public class SellerDaoJDBC implements SellerDao {
@@ -21,7 +18,35 @@ public class SellerDaoJDBC implements SellerDao {
 
     @Override
     public void insert(Seller obj) {
+        PreparedStatement st = null;
+        try{
+            st = conn.prepareStatement(
+            "INSERT INTO EXT_1.JJSELLER (NAME, EMAIL, BIRTHDATE, BASESALARY, DEPARTMENTID)\n" +
+                "VALUES (?, ?, ?, ?, ?)"
+            );
+            st.setString(1, obj.getName());
+            st.setString(2, obj.getEmail());
+            st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime()));
+            st.setDouble(4, obj.getBaseSalary());
+            st.setInt(5, obj.getDepartment().getId());
 
+            int rowsAffectd = st.executeUpdate();
+
+            if (rowsAffectd > 0) {
+                ResultSet rs = st.getGeneratedKeys();
+                if (rs.next()) {
+                    int id = rs.getInt(1);
+                    obj.setId(id);
+                }
+                DB.closeResultSet(rs);
+            } else {
+                throw new DbException("Unexpected error! No rows affected");
+            }
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override
@@ -93,7 +118,7 @@ public class SellerDaoJDBC implements SellerDao {
                     "DEP.NAME AS DEPNAME\n" +
                 "FROM EXT_1.JJSELLER SEL\n" +
                 "INNER JOIN EXT_1.JJDEPARTMENT DEP ON DEP.ID = SEL.DEPARTMENTID\n" +
-                "ORDER BY DEP.NAME"
+                "ORDER BY SEL.NAME"
             );
             rs = st.executeQuery();
 

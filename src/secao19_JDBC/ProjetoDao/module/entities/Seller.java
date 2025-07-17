@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+
 public class Seller implements Serializable {
     private Integer id;
     private String name;
@@ -12,7 +13,7 @@ public class Seller implements Serializable {
     private Double baseSalary;
     private Department department;
 
-    public Seller(){};
+    public Seller(){}
 
     public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
         this.id = id;

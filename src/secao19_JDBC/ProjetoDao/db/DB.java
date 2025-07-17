@@ -14,9 +14,7 @@ public class DB {
             try {
                 Properties props = loadProperties();
                 String url = props.getProperty("dburl");
-
                 conn = DriverManager.getConnection(url, props);
-                System.out.println("Conexão estabelecida com sucesso.\n");
             } catch (SQLException e) {
                 System.out.println("Erro - " + e.getMessage());
             }
@@ -39,7 +37,6 @@ public class DB {
         try{
             if (conn != null) {
                 conn.close();
-                System.out.print("\nConexao fechada com sucesso.\n");
             }
        } catch (SQLException e) {
             throw new DbException(e.getMessage());
@@ -50,7 +47,6 @@ public class DB {
         if (st != null){
             try{
                 st.close();
-                System.out.println("\nStatement encerrado com sucesso.\n");
             } catch (SQLException e) {
                 throw new DbException(e.getMessage());
             }
@@ -61,7 +57,6 @@ public class DB {
         if (rs != null){
             try{
                 rs.close();
-                System.out.println("ResulSet encerrado com sucesso.");
             } catch (SQLException e) {
                 throw new DbException(e.getMessage());
             }
