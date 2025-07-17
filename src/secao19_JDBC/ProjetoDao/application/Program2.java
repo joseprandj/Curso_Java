@@ -19,13 +19,24 @@ public class Program2 {
         Department department = departmentDao.findById(3);
         System.out.println(department);
 
-        System.out.println("\n--- TESTE 3: department findAll");
+        System.out.println("\n--- TESTE 2: department findAll");
         list = departmentDao.findAll();
         for (Department obj : list){
             System.out.println(obj);
         }
-        
-        System.out.println("\n--- TESTE 6: department delete");
+
+        System.out.println("\n--- TESTE 3: department insert");
+        Department newDepartment = new Department(null, "IFOOD");
+        //departmentDao.insert(newDepartment);
+        System.out.print("Inserted success");
+
+        System.out.println("\n--- TESTE 4: department update");
+        department = departmentDao.findById(22);
+        department.setName("Ifood");
+        departmentDao.update(department);
+        System.out.print("Updated completed");
+
+        System.out.println("\n--- TESTE 5: department delete");
         System.out.print("enter id delete teste: ");
         int id = sc.nextInt();
         departmentDao.deleteById(id);
